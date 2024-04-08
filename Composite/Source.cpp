@@ -84,7 +84,7 @@ public:
 	void Display(int depth) override
 	{
 		string s(depth, '-');
-		cout << s + name << endl;
+		cout << s + name << " Price :" << price << endl;
 		
 
 		for(Component *component : components)
@@ -116,7 +116,7 @@ public:
 	void Display(int depth) override
 	{
 		string s(depth, '-');
-		cout << s + name << endl;
+		cout << s + name <<" Price :" <<price << endl;
 	}
 };
 
@@ -126,39 +126,19 @@ public:
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-
 	Component* root = new Composite("Приемная");
-
 	root->Add(new Leaf("Должна быть выполнена в теплых тонах",200));
-	
-
 	Component* comp = new Composite("Журнальный столик",100);
-
-	comp->Add(new Leaf("10-20 журналов типа «компьютерный мир"));
-
+	comp->Add(new Leaf("10-20 журналов типа компьютерный мир",200));
 	root->Add(comp);
-
-
 	root->Add(new Leaf("Мягкий диван",200));
-	
-	
-
-
 	Component* comp2 = new Composite("Стол секретаря",1500);
-
-	
 	Component* comp3 = new Composite("Компьютер");
 	comp3->Add(new Leaf("Важно наличие большого объема жесткого диска",100));
-	
-	comp2->Add(new Leaf("Офисный инструментарий"));
-	
+	comp2->Add(new Leaf("Офисный инструментарий",100));
 	comp2->Add(comp3);
-
 	root->Add(comp2);
-
 	root->Add(new Leaf("Кулер с теплой и холодной водой",400));
-
-	
 	root->Display(1);
 	cout << "\n\n";
 
@@ -175,7 +155,7 @@ int main()
 	root2->Add(new Leaf("10 столов",1000));
 	root2->Add(new Leaf("Доска",200));
 	Component* comp4 = new Composite("Стол учителя",1300);
-	comp4->Add(new Leaf("Компьютер"));
+	comp4->Add(new Leaf("Компьютер",200));
 	root2->Add(comp4);
 	root2->Add(new Leaf("Плакаты великих математиков",200));
 	root2->Display(1);
@@ -188,8 +168,8 @@ int main()
 
 	Component* root3 = new Composite("Аудитория 2");
 	Component* comp5 = new Composite("20 столов",2000);
-	comp5->Add(new Leaf("Столы черного цвета"));
-	comp5->Add(new Leaf("Столы выставлены в овал или круг"));
+	comp5->Add(new Leaf("Столы черного цвета",1000));
+	comp5->Add(new Leaf("Столы выставлены в овал или круг",1000));
 	root3->Add(comp5);
 	root3->Add(new Leaf("Доска",200));
 	root3->Add(new Leaf("Мягкий диван",200));
@@ -203,14 +183,14 @@ int main()
 	Component* root4 = new Composite("Компьютерная аудитория");
 	Component* comp6 = new Composite("10 компьютерных столов",1000);
 	root4->Add(comp6);
-	Component* comp7 = new Composite("Компьютер на каждом столе");
+	Component* comp7 = new Composite("Компьютер на каждом столе",100);
 	comp6->Add(comp7);
-	comp7->Add(new Leaf("Процессор 2.2ГРц"));
-	comp7->Add(new Leaf("Винчестер на 80ГБ"));
-	comp7->Add(new Leaf("Оперативная память 1024МБ"));
-	comp6->Add(new Leaf("Розетка возле каждого стола"));
+	comp7->Add(new Leaf("Процессор 2.2ГРц",10));
+	comp7->Add(new Leaf("Винчестер на 80ГБ",10));
+	comp7->Add(new Leaf("Оперативная память 1024МБ",10));
+	comp6->Add(new Leaf("Розетка возле каждого стола",10));
 	Component* comp8 = new Composite("Доска",250);
-	comp8->Add(new Leaf("Набор разноцветных маркеров"));
+	comp8->Add(new Leaf("Набор разноцветных маркеров",10));
 	root4->Add(comp8);
 	root4->Display(1);
 	cout << "\n\n";
@@ -222,7 +202,7 @@ int main()
 	Component* root5 = new Composite("Столовая");
 	root5->Add(new Leaf("Кофейный автомат",500));
 	Component* comp9 = new Composite("Стол",540);
-	comp9->Add(new Leaf("4 стула"));
+	comp9->Add(new Leaf("4 стула",400));
 	root5->Add(comp9);
 	root5->Add(new Leaf("Холодильник",400));
 	root5->Add(new Leaf("Умывальник",300));
