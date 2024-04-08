@@ -50,11 +50,12 @@ public:
 	{
 		return price;
 	}
+	
 
 	virtual  void Add(Component *c) abstract;
 	virtual  void Remove(Component *c) abstract;
 	virtual  void Display(int depth) abstract;
-
+	
 };
 
 /*
@@ -85,13 +86,18 @@ public:
 	{
 		string s(depth, '-');
 		cout << s + name << " Price :" << price << endl;
-		
+		//int sum=0;
 
 		for(Component *component : components)
 		{
+			
 			component->Display(depth + 1);
+			//sum = sum + component->GetPrice();
 		}
+		//cout << "Сумма всех предметов офиса: " << sum << endl;
 	}
+
+	
 
 
 };
@@ -117,7 +123,13 @@ public:
 	{
 		string s(depth, '-');
 		cout << s + name <<" Price :" <<price << endl;
+		
 	}
+
+	
+
+
+
 };
 
 
@@ -215,7 +227,8 @@ int main()
 
 
 
-
+	
+	
 
 
 	/*Component* root = new Composite("root");
