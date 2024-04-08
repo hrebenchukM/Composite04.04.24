@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 
+
 /*
  *  Паттерн проектирования, объединяет объекты в древовидную структуру для представления иерархии от частного к целому.
  *  Позволяет клиентам единообразно трактовать индивидуальные и составные объекты.
@@ -45,10 +46,15 @@ public:
 		this->price = price;
 	}
 
+	int GetPrice()
+	{
+		return price;
+	}
+
 	virtual  void Add(Component *c) abstract;
 	virtual  void Remove(Component *c) abstract;
 	virtual  void Display(int depth) abstract;
-	
+
 };
 
 /*
@@ -79,6 +85,7 @@ public:
 	{
 		string s(depth, '-');
 		cout << s + name << endl;
+		
 
 		for(Component *component : components)
 		{
