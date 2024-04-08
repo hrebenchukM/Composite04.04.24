@@ -86,15 +86,15 @@ public:
 	{
 		string s(depth, '-');
 		cout << s + name << " Price :" << price << endl;
-		//int sum=0;
+		int sum=0;
 
 		for(Component *component : components)
 		{
 			
 			component->Display(depth + 1);
-			//sum = sum + component->GetPrice();
+			sum = sum + component->GetPrice();
 		}
-		//cout << "Сумма всех предметов офиса: " << sum << endl;
+		cout << "Сумма всех предметов офиса: " << sum << endl;
 	}
 
 	
@@ -214,7 +214,7 @@ int main()
 	Component* root5 = new Composite("Столовая");
 	root5->Add(new Leaf("Кофейный автомат",500));
 	Component* comp9 = new Composite("Стол",540);
-	comp9->Add(new Leaf("4 стула",400));
+	comp9->Add(new Leaf("4 стула",0));
 	root5->Add(comp9);
 	root5->Add(new Leaf("Холодильник",400));
 	root5->Add(new Leaf("Умывальник",300));
